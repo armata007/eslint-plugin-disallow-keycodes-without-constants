@@ -19,9 +19,9 @@ var ruleTester = new RuleTester();
 ruleTester.run("disallow-keycodes-without-constants", rule, {
   valid: [
     "e.which === CONSTANT",
-        "e.keyCode === CONSTANT",
-        "e.keyCode === CONST_ANT",
-        "e.keyCode === CONSTANT3",
+    "e.keyCode === CONSTANT",
+    "e.keyCode === CONST_ANT",
+    "e.keyCode === CONSTANT3",
     "e.b.keyCode === CONSTANT",
     "e.b.keyCode === 13"
   ],
@@ -44,16 +44,17 @@ ruleTester.run("disallow-keycodes-without-constants", rule, {
           type: "BinaryExpression"
         }
       ]
-      },
-      {
-          code: "abc.keyCode === lowercasename",
-          errors: [
-              {
-                  message: "Unexpected key code usage without a constant variable written in uppercase (lowercasename)",
-                  type: "BinaryExpression"
-              }
-          ]
-      },
+    },
+    {
+      code: "abc.keyCode === lowercasename",
+      errors: [
+        {
+          message:
+            "Unexpected key code usage without a constant variable written in uppercase (lowercasename)",
+          type: "BinaryExpression"
+        }
+      ]
+    },
     {
       code: "e.which === 13",
       errors: [
